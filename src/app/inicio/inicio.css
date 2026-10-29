@@ -1,76 +1,362 @@
-.perfil-container {
-  font-family: Arial, sans-serif;
-  max-width: 650px;
-  margin: 40px auto;
-  text-align: center;
-  color: #333;
+/* Variables de Color (Temática Animal y Entorno QA Naranja) */
+:root {
+  --bg-app: #f4f7f6;
+  --bg-card: #ffffff;
+  --text-main: #2c3e50;
+  --text-muted: #7f8c8d;
+  --primary: #fd7e14; /* Naranja QA */
+  --primary-light: #ffe8cc; /* Naranja claro */
+  --accent: #3498db;
+  --success: #2ecc71;
+  --danger: #e74c3c;
+  --border-radius: 16px;
+  --shadow: 0 8px 24px rgba(0,0,0,0.06);
 }
 
-h1 {
-  color: #2c3e50;
-  margin-bottom: 5px;
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-app);
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text-main);
 }
 
-h3 {
-  color: #7f8c8d;
-  font-weight: normal;
-  margin-bottom: 30px;
-}
-
-/* Contenedor del entorno: Aquí aplicarás los colores (verde, naranja, azul) más adelante */
-.entorno-indicador {
-  background-color: #f8951c; 
-  padding: 15px;
-  border-radius: 8px;
-  font-weight: bold;
-  margin-bottom: 30px;
-  border: 2px dashed #fd7e14;
-}
-
-/* Estilos de la cartilla */
-.cartilla-mascota {
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  padding: 25px;
+.petfil-dashboard {
   display: flex;
-  gap: 30px;
-  align-items: center;
-  text-align: left;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.foto-mascota img {
-  width: 150px;
-  height: 150px;
+/* --- SIDEBAR --- */
+.pet-sidebar {
+  width: 320px;
+  background: var(--bg-card);
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 4px 0 15px rgba(0,0,0,0.03);
+  z-index: 10;
+}
+
+.pet-card {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.pet-photo-container {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 15px;
+}
+
+.pet-photo {
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid #3498db;
+  border: 4px solid var(--primary-light);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.info-mascota h2 {
-  margin-top: 0;
-  color: #2c3e50;
-  font-size: 24px;
+.pet-status {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 20px;
+  height: 20px;
+  background-color: var(--success);
+  border: 3px solid white;
+  border-radius: 50%;
 }
 
-.datos-basicos {
-  list-style-type: none;
+.pet-name {
+  margin: 0 0 5px 0;
+  font-size: 26px;
+  color: var(--text-main);
+}
+
+.pet-breed {
+  margin: 0 0 20px 0;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.pet-quick-stats {
+  display: flex;
+  justify-content: space-between;
+  background: var(--bg-app);
+  border-radius: 12px;
+  padding: 15px;
+}
+
+.stat-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-value {
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+/* Indicador Entorno */
+.entorno-indicador {
+  background-color: var(--primary-light);
+  color: #b0570d;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  border: 2px dashed var(--primary);
+  font-size: 14px;
+}
+
+.pet-nav ul {
+  list-style: none;
   padding: 0;
-  margin: 10px 0;
-  color: #555;
-}
-
-.datos-basicos li {
-  margin-bottom: 8px;
-}
-
-.gustos h4 {
-  margin: 15px 0 5px 0;
-  color: #34495e;
-}
-
-.gustos p {
   margin: 0;
-  color: #666;
-  line-height: 1.5;
+}
+
+.pet-nav li {
+  padding: 14px 20px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.pet-nav li:hover {
+  background: var(--bg-app);
+}
+
+.pet-nav li.active {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+/* --- MAIN CONTENT --- */
+.pet-main-content {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+}
+
+.dashboard-header {
+  margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+  margin: 0 0 5px 0;
+  font-size: 32px;
+}
+
+.date-display {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.card {
+  background: var(--bg-card);
+  border-radius: var(--border-radius);
+  padding: 25px;
+  box-shadow: var(--shadow);
+}
+
+.card h3 {
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+
+/* Lista Tareas */
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 15px 0;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px dashed #eee;
+}
+
+.task label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.task.completed span {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.time-log {
+  font-size: 12px;
+  color: var(--text-muted);
+  background: #f0f0f0;
+  padding: 4px 8px;
+  border-radius: 20px;
+}
+
+.btn-add {
+  width: 100%;
+  padding: 12px;
+  border: 1px dashed var(--primary);
+  background: transparent;
+  color: var(--primary);
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.btn-add:hover {
+  background: var(--primary-light);
+}
+
+/* Info Comida */
+.info-row {
+  margin-bottom: 15px;
+}
+.info-row strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--text-main);
+  font-size: 14px;
+}
+.info-row span {
+  color: var(--text-muted);
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.tag {
+  background: #e8f4fd;
+  color: var(--accent);
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Pasaporte */
+.medical-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+.medical-item {
+  background: var(--bg-app);
+  padding: 12px;
+  border-radius: 8px;
+}
+.medical-item .label {
+  display: block;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+.medical-item .value {
+  font-weight: 600;
+  font-size: 14px;
+}
+.value.alert { color: var(--danger); }
+.value.success { color: var(--success); }
+
+.vet-contact {
+  background: var(--primary-light);
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid var(--primary);
+}
+.vet-contact h4 { margin: 0 0 5px 0; font-size: 14px; color: #b0570d;}
+.vet-contact p { margin: 0; font-size: 13px; color: #b0570d;}
+
+/* Diario */
+.journal-entries {
+  margin-bottom: 20px;
+}
+.entry {
+  margin-bottom: 15px;
+  padding-left: 15px;
+  border-left: 2px solid #eee;
+}
+.entry-date {
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+.entry-content {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.add-entry {
+  display: flex;
+  gap: 10px;
+}
+.add-entry input {
+  flex: 1;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  outline: none;
+}
+.add-entry .btn-send {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+}
+.add-entry .btn-send:hover { background: #e66f0e; }
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 1024px) {
+  .dashboard-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .petfil-dashboard { flex-direction: column; overflow: auto; }
+  .pet-sidebar { width: auto; flex-direction: row; flex-wrap: wrap; justify-content: center; padding: 20px;}
+  .pet-card { margin-bottom: 0; margin-right: 20px; display: flex; align-items: center; gap: 15px; text-align: left;}
+  .pet-photo-container { width: 80px; height: 80px; margin: 0;}
+  .pet-quick-stats { display: none; }
+  .entorno-indicador { width: 100%; margin: 15px 0;}
+  .pet-nav { width: 100%; overflow-x: auto;}
+  .pet-nav ul { display: flex; gap: 10px;}
+  .pet-main-content { padding: 20px; }
 }
