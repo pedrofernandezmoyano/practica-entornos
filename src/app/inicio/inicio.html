@@ -1,30 +1,186 @@
-<div class="perfil-container">
-  <h1>Petfil</h1>
-  <h3>Bienvenido a Petfil, el perfil que habla por tu mascota</h3>
-
-  <!-- Sección del entorno (Requisito de la práctica) -->
-  <div class="cont entorno-indicador">
-      <p>Entorno de aceptacion UAT</p>
-  </div>
-
-  <!-- Cartilla de la mascota -->
-  <div class="cartilla-mascota">
-    <div class="foto-mascota">
-      <img src="https://via.placeholder.com/150" alt="Foto de la mascota">
-    </div>
-    
-    <div class="info-mascota">
-      <h2>Max</h2>
-      <ul class="datos-basicos">
-        <li><strong>Edad:</strong> 3 años</li>
-        <li><strong>Raza:</strong> Golden Retriever</li>
-        <li><strong>Peso:</strong> 25 kg</li>
-      </ul>
+<div class="petfil-dashboard">
+  <!-- Sidebar / Perfil Básico -->
+  <aside class="pet-sidebar">
+    <div class="pet-card">
+      <div class="pet-photo-container">
+        <!-- Foto real de Unsplash -->
+        <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=200&q=80" alt="Foto de Max" class="pet-photo">
+        <div class="pet-status online" title="En casa descansando"></div>
+      </div>
+      <h2 class="pet-name">Max</h2>
+      <p class="pet-breed">Golden Retriever</p>
       
-      <div class="gustos">
-        <h4>Gustos y Aficiones:</h4>
-        <p>Perseguir pelotas, nadar en el río, dormir al sol y morder zapatillas.</p>
+      <div class="pet-quick-stats">
+        <div class="stat-box">
+          <span class="stat-label">Edad</span>
+          <span class="stat-value">3 años</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">Peso</span>
+          <span class="stat-value">25.5 kg</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">Energía</span>
+          <span class="stat-value">⚡ Alta</span>
+        </div>
       </div>
     </div>
-  </div>
+
+    <!-- Indicador de Entorno (QA) -->
+    <div class="cont entorno-indicador">
+      <p>Entorno de pruebas QA</p>
+    </div>
+
+    <nav class="pet-nav">
+      <ul>
+        <li class="active">🏠 Panel General</li>
+        <li>🏥 Salud y Vacunas</li>
+        <li>🥩 Dieta y Nutrición</li>
+        <li>📖 Diario y Hábitos</li>
+        <li>⚙️ Configuración</li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Panel Principal -->
+  <main class="pet-main-content">
+    <header class="dashboard-header">
+      <div>
+        <h1>¡Hola, humano de Max! 👋</h1>
+        <p class="date-display">Resumen de cuidados para hoy, 30 de Octubre</p>
+      </div>
+      <button class="btn-primary">🐾 Generar Reporte</button>
+    </header>
+
+    <div class="dashboard-grid">
+      
+      <!-- Cuidados Diarios (Checklist) -->
+      <section class="card daily-care">
+        <div class="card-header">
+          <h3>✅ Tareas de Hoy</h3>
+          <span class="badge badge-warning">2 pendientes</span>
+        </div>
+        <ul class="task-list">
+          <li class="task completed">
+            <label>
+              <input type="checkbox" checked disabled>
+              <span>Desayuno (Ración mañana)</span>
+            </label>
+            <span class="time-log">08:00 AM</span>
+          </li>
+          <li class="task completed">
+            <label>
+              <input type="checkbox" checked disabled>
+              <span>Paseo matutino (45 min)</span>
+            </label>
+            <span class="time-log">08:30 AM</span>
+          </li>
+          <li class="task">
+            <label>
+              <input type="checkbox">
+              <span>Cepillado de pelo (Época de muda)</span>
+            </label>
+            <span class="tag-urgent">Para hoy</span>
+          </li>
+          <li class="task">
+            <label>
+              <input type="checkbox">
+              <span>Cena (Ración noche)</span>
+            </label>
+            <span class="time-log">20:00 PM</span>
+          </li>
+        </ul>
+        <button class="btn-add">+ Añadir recordatorio</button>
+      </section>
+
+      <!-- Alimentación -->
+      <section class="card food-pref">
+        <div class="card-header">
+          <h3>🥩 Nutrición</h3>
+        </div>
+        <div class="food-info">
+          <div class="info-row">
+            <strong>Pienso Actual:</strong>
+            <span>Royal Canin Golden Retriever Adult</span>
+          </div>
+          <div class="info-row">
+            <strong>Tomas:</strong>
+            <span>400g / día (200g mañana - 200g noche)</span>
+          </div>
+          <div class="info-row">
+            <strong>Alergias o Intolerancias:</strong>
+            <span class="text-danger">Sensibilidad al pollo crudo</span>
+          </div>
+          <div class="info-row">
+            <strong>Premios Favoritos:</strong>
+            <div class="tags">
+              <span class="tag tag-green">Hueso dental</span>
+              <span class="tag tag-green">Trozos de manzana</span>
+              <span class="tag tag-green">Zanahoria</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pasaporte Médico Digital -->
+      <section class="card medical-passport">
+        <div class="card-header">
+          <h3>🏥 Pasaporte Médico</h3>
+        </div>
+        <div class="medical-grid">
+          <div class="medical-item">
+            <span class="label">Nº Microchip</span>
+            <span class="value">934000123456789</span>
+          </div>
+          <div class="medical-item">
+            <span class="label">Seguro Médico</span>
+            <span class="value">MascotaSegura Premium</span>
+          </div>
+          <div class="medical-item">
+            <span class="label">Próxima Vacuna</span>
+            <span class="value alert">Rabia (15 Nov)</span>
+          </div>
+          <div class="medical-item">
+            <span class="label">Desparasitación</span>
+            <span class="value success">Collar Seresto (Activo)</span>
+          </div>
+        </div>
+        <div class="vet-contact">
+          <div class="vet-info">
+            <h4>Clínica San Lázaro</h4>
+            <p>Dr. Martínez - 958 123 456</p>
+          </div>
+          <button class="btn-icon">📞</button>
+        </div>
+      </section>
+
+      <!-- Diario de Comportamiento -->
+      <section class="card journal">
+        <div class="card-header">
+          <h3>📖 Diario de Max</h3>
+        </div>
+        <div class="journal-entries">
+          <div class="entry">
+            <div class="entry-icon">🎾</div>
+            <div class="entry-details">
+              <div class="entry-date">Ayer, 18:30</div>
+              <div class="entry-content">Se portó genial en el parque de perros. Aprendió a soltar la pelota a la primera sin tirar de la correa.</div>
+            </div>
+          </div>
+          <div class="entry">
+            <div class="entry-icon">😴</div>
+            <div class="entry-details">
+              <div class="entry-date">26 Oct, 10:00</div>
+              <div class="entry-content">Estuvo un poco apático por la mañana tras el baño, pero comió bien su ración.</div>
+            </div>
+          </div>
+        </div>
+        <div class="add-entry">
+          <input type="text" placeholder="Escribe un nuevo momento...">
+          <button class="btn-send">Guardar</button>
+        </div>
+      </section>
+
+    </div>
+  </main>
 </div>
