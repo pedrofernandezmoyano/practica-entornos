@@ -1,30 +1,230 @@
-<div class="perfil-container">
-  <h1>Petfil</h1>
-  <h3>Bienvenido a Petfil, el perfil que habla por tu mascota</h3>
+<div class="pet-owner-dashboard">
+  <!-- Sidebar / Perfil del Propietario -->
+  <aside class="sidebar">
+    <div class="profile-section">
+      <div class="avatar-container">
+        <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=200&q=80" alt="Max" class="avatar">
+        <div class="status-indicator"></div>
+      </div>
+      <h2 class="pet-name">Max</h2>
+      <p class="pet-breed">Golden Retriever</p>
 
-  <!-- Sección del entorno (Requisito de la práctica) -->
-  <div class="cont entorno-indicador">
-      <p>Entorno base</p>
-  </div>
-
-  <!-- Cartilla de la mascota -->
-  <div class="cartilla-mascota">
-    <div class="foto-mascota">
-      <img src="https://via.placeholder.com/150" alt="Foto de la mascota">
-    </div>
-    
-    <div class="info-mascota">
-      <h2>Max</h2>
-      <ul class="datos-basicos">
-        <li><strong>Edad:</strong> 3 años</li>
-        <li><strong>Raza:</strong> Golden Retriever</li>
-        <li><strong>Peso:</strong> 25 kg</li>
-      </ul>
-      
-      <div class="gustos">
-        <h4>Gustos y Aficiones:</h4>
-        <p>Perseguir pelotas, nadar en el río, dormir al sol y morder zapatillas.</p>
+      <div class="quick-metrics">
+        <div class="metric">
+          <span class="m-value">25.5 <small>kg</small></span>
+          <span class="m-label">Peso ideal</span>
+        </div>
+        <div class="metric">
+          <span class="m-value">3 <small>años</small></span>
+          <span class="m-label">Edad</span>
+        </div>
       </div>
     </div>
-  </div>
+
+    <!-- INDICADOR DE ENTORNO: PRODUCCIÓN (VERDE) -->
+    <div class="cont entorno-indicador">
+      <span class="env-icon">🟢</span>
+      <p>Entorno de Producción</p>
+    </div>
+
+    <nav class="main-nav">
+      <ul>
+        <li class="active"><span class="icon">📊</span> Resumen Diario</li>
+        <li><span class="icon">🥩</span> Nutrición</li>
+        <li><span class="icon">🏃‍♂️</span> Actividad</li>
+        <li><span class="icon">🏥</span> Salud</li>
+        <li><span class="icon">🛁</span> Higiene</li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Panel Principal -->
+  <main class="dashboard-content">
+    <header class="top-header">
+      <div class="greeting">
+        <h1>Resumen de hoy para Max 👋</h1>
+        <p>Jueves, 30 de Octubre • 🌤️ Día soleado para pasear</p>
+      </div>
+      <div class="header-actions">
+        <button class="btn-secondary">⚙️ Ajustes</button>
+        <button class="btn-primary">➕ Añadir Registro</button>
+      </div>
+    </header>
+
+    <div class="bento-grid">
+      
+      <!-- 1. Rutina Diaria -->
+      <section class="bento-card routine-card">
+        <div class="card-header">
+          <h3>📅 Rutina Diaria</h3>
+          <span class="progress-text">3/5 completado</span>
+        </div>
+        <div class="task-list">
+          <label class="task-item completed">
+            <input type="checkbox" checked disabled>
+            <div class="task-info">
+              <span class="task-title">Paseo Matutino</span>
+              <span class="task-time">08:00 AM • 45 min</span>
+            </div>
+          </label>
+          <label class="task-item completed">
+            <input type="checkbox" checked disabled>
+            <div class="task-info">
+              <span class="task-title">Desayuno</span>
+              <span class="task-time">09:00 AM • 200g</span>
+            </div>
+          </label>
+          <label class="task-item completed">
+            <input type="checkbox" checked disabled>
+            <div class="task-info">
+              <span class="task-title">Medicación (Condroprotector)</span>
+              <span class="task-time">09:15 AM • 1 pastilla</span>
+            </div>
+          </label>
+          <label class="task-item">
+            <input type="checkbox">
+            <div class="task-info">
+              <span class="task-title">Paseo Nocturno</span>
+              <span class="task-time">20:00 PM • 30 min</span>
+            </div>
+          </label>
+          <label class="task-item">
+            <input type="checkbox">
+            <div class="task-info">
+              <span class="task-title">Cena</span>
+              <span class="task-time">21:00 PM • 200g</span>
+            </div>
+          </label>
+        </div>
+      </section>
+
+      <!-- 2. Nutrición e Hidratación -->
+      <section class="bento-card nutrition-card">
+        <div class="card-header">
+          <h3>💧 Nutrición y Agua</h3>
+        </div>
+        <div class="nutrition-content">
+          <div class="tracker-group">
+            <div class="tracker-header">
+              <span>Calorías diarias</span>
+              <strong>750 / 1200 kcal</strong>
+            </div>
+            <div class="progress-bar"><div class="fill kcal-fill" style="width: 62%;"></div></div>
+          </div>
+          
+          <div class="water-tracker">
+            <p class="water-title">Consumo de Agua (Aprox)</p>
+            <div class="water-glasses">
+              <span class="glass filled">💧</span>
+              <span class="glass filled">💧</span>
+              <span class="glass filled">💧</span>
+              <span class="glass">💧</span>
+              <span class="glass">💧</span>
+            </div>
+            <button class="btn-water">+ Añadir toma</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Actividad y Ejercicio -->
+      <section class="bento-card activity-card">
+        <div class="card-header">
+          <h3>🏃‍♂️ Actividad Física</h3>
+        </div>
+        <div class="activity-stats">
+          <div class="stat-circle">
+            <svg viewBox="0 0 36 36" class="circular-chart">
+              <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              <path class="circle" stroke-dasharray="75, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              <text x="18" y="20.35" class="percentage">75%</text>
+            </svg>
+            <span class="circle-label">Objetivo Diario</span>
+          </div>
+          <div class="stat-details">
+            <div class="s-row"><span>🔥 Activo:</span> <strong>1h 15m</strong></div>
+            <div class="s-row"><span>💤 Sueño:</span> <strong>12h 30m</strong></div>
+            <div class="s-row"><span>📏 Distancia:</span> <strong>4.2 km</strong></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Salud y Prevención -->
+      <section class="bento-card health-card">
+        <div class="card-header">
+          <h3>🏥 Salud y Prevención</h3>
+        </div>
+        <div class="health-grid">
+          <div class="health-item alert">
+            <span class="h-icon">💉</span>
+            <div class="h-text">
+              <strong>Vacuna Rabia</strong>
+              <span>Vence en 15 días</span>
+            </div>
+          </div>
+          <div class="health-item ok">
+            <span class="h-icon">💊</span>
+            <div class="h-text">
+              <strong>Desparasitación</strong>
+              <span>Collar activo (Mayo 2027)</span>
+            </div>
+          </div>
+          <div class="health-item ok">
+            <span class="h-icon">⚖️</span>
+            <div class="h-text">
+              <strong>Control Peso</strong>
+              <span>Estable (hace 1 sem)</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Higiene y Cuidados -->
+      <section class="bento-card hygiene-card">
+        <div class="card-header">
+          <h3>🛁 Higiene</h3>
+        </div>
+        <ul class="hygiene-list">
+          <li>
+            <span class="h-name">Baño Completo</span>
+            <span class="h-status due">Toca esta semana</span>
+          </li>
+          <li>
+            <span class="h-name">Cepillado Dental</span>
+            <span class="h-status done">Hecho ayer</span>
+          </li>
+          <li>
+            <span class="h-name">Corte de Uñas</span>
+            <span class="h-status ok">Hace 2 semanas</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 6. Entrenamiento y Social -->
+      <section class="bento-card training-card">
+        <div class="card-header">
+          <h3>🧠 Entrenamiento y Diario</h3>
+        </div>
+        <div class="training-content">
+          <div class="mood-selector">
+            <span>Estado de ánimo hoy:</span>
+            <div class="moods">
+              <span class="mood active">🤪 Juguetón</span>
+            </div>
+          </div>
+          <div class="skills">
+            <strong>Comandos practicados:</strong>
+            <div class="skill-tags">
+              <span class="tag">Junto</span>
+              <span class="tag">Soltar</span>
+              <span class="tag">Quieto (Nivel 2)</span>
+            </div>
+          </div>
+          <div class="journal-mini">
+            <p>"Hoy ignoró a una paloma en el parque. ¡Mucho progreso con el autocontrol!"</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
 </div>
